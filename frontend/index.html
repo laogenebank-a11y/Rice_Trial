@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="lo"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2f8f5b"><link rel="manifest" href="manifest.json"><link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Rice Trial</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="app.css">
+<script src="config.js"></script><script src="ui.js" defer></script><script src="app.js" defer></script>
+</head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></symbol>
+<symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></symbol>
+</svg>
+<nav class="tabbar" aria-label="Main"><div class="brand"><img src="img/logo.png" alt="" onerror="this.remove()"><span data-i="app.name"></span></div>
+<button class="tab press" data-nav="overview"><span class="ic"><svg class="i"><use href="#i-home"/></svg><img src="img/nav-overview.png" alt="" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"></span><span data-i="nav.overview"></span></button>
+<button class="tab press" data-nav="record"><span class="ic"><svg class="i"><use href="#i-edit"/></svg><img src="img/nav-record.png" alt="" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"></span><span data-i="nav.record"></span></button>
+<button class="tab press" data-nav="photos"><span class="ic"><svg class="i"><use href="#i-cam"/></svg><img src="img/nav-photos.png" alt="" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"></span><span data-i="nav.photos"></span></button>
+<button class="tab press" data-nav="layout"><span class="ic"><svg class="i"><use href="#i-map"/></svg><img src="img/nav-layout.png" alt="" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"></span><span data-i="nav.layout"></span></button>
+<button class="tab press" data-nav="settings"><span class="ic"><svg class="i"><use href="#i-gear"/></svg><img src="img/nav-settings.png" alt="" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"></span><span data-i="nav.settings"></span></button></nav>
+<main class="main"><div class="wrap"><p id="msg" class="banner" hidden></p>
+<section class="view" id="view-overview"><header class="page-head"><h1 data-i="nav.overview"></h1><p class="muted" id="season"></p></header><div class="stack" id="ov"></div></section>
+<section class="view" id="view-record"><header class="page-head"><h1 data-i="nav.record"></h1></header><div class="card reveal"><div class="list" id="forms"></div></div></section>
+<section class="view" id="view-photos"><header class="page-head"><h1 data-i="nav.photos"></h1></header><div class="card reveal"><div class="list">
+<button class="row press" data-photo="daily"><span class="ico"><span class="ic"><svg class="i"><use href="#i-cam"/></svg><img src="img/photo-daily.png" alt="" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"></span></span><span class="grow" data-i="ph.daily"></span></button>
+<button class="row press" data-photo="problem"><span class="ico o"><span class="ic"><svg class="i"><use href="#i-cam"/></svg><img src="img/photo-problem.png" alt="" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"></span></span><span class="grow" data-i="ph.problem"></span></button></div></div></section>
+<section class="view" id="view-layout"><header class="page-head"><h1 data-i="nav.layout"></h1></header><div class="stack" id="lay"></div></section>
+<section class="view" id="view-settings"><header class="page-head"><h1 data-i="nav.settings"></h1></header><div class="stack">
+<div class="card reveal stack"><h2 data-i="set.profile"></h2><div class="fields-2"><label class="field"><span data-i="set.first"></span><input id="fn"></label><label class="field"><span data-i="set.last"></span><input id="ln"></label></div></div>
+<div class="card reveal stack"><h2 data-i="set.lang"></h2><div class="seg" id="langseg"><button data-lang="lo">ລາວ</button><button data-lang="en">English</button></div>
+<h2 data-i="set.theme"></h2><div class="seg"><button data-theme-set="default" data-i="set.theme.default"></button><button data-theme-set="blue" data-i="set.theme.blue"></button><button data-theme-set="contrast" data-i="set.theme.contrast"></button></div></div>
+<div class="card reveal"><img class="logo" src="img/logo.png" alt="" width="64" height="64" onerror="this.remove()"><h2 data-i="set.about"></h2><p class="muted" id="about"></p></div></div></section>
+</div></main>
+<section class="sheet" id="sheet-form" role="dialog" aria-modal="true"><div class="grab"></div>
+<div class="sheet-head"><h2 id="form-title"></h2><button class="btn ghost press" data-close data-i="close"></button></div><div id="form-body" class="stack"></div></section>
+</body></html>
